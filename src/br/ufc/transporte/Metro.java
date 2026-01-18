@@ -17,6 +17,6 @@ public class Metro extends Veiculo {
 
     @Override
     public void mover() {
-        System.out.println("Metrô em operação");
+        System.out.println("Metrô funcionando");
     }
 }
