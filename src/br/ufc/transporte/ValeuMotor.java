@@ -97,15 +97,18 @@ public class ValeuMotor {
             Class<?>[] tipos = construtor.getParameterTypes();
             Object[] valores = new Object[tipos.length];
 
+            System.out.println("\npreencha os dados:");
+
             for (int i = 0; i < tipos.length; i++) {
-                System.out.print("valor " + (i + 1) + ": ");
+                String campo = obterNomeCampo(classe, i);
+                System.out.print(campo + ": ");
                 String entrada = scanner.nextLine();
                 valores[i] = converterValor(entrada, tipos[i]);
             }
 
             Object obj = construtor.newInstance(valores);
 
-            System.out.println("cadastro realizado com sucesso");
+            System.out.println("\ncadastro realizado com sucesso");
 
             try {
                 Method desc = classe.getMethod("getDescricao");
@@ -123,6 +126,65 @@ public class ValeuMotor {
         }
 
         return null;
+    }
+    private static String obterNomeCampo(Class<?> classe, int indice) {
+
+        if (classe == Onibus.class) {
+            return switch (indice) {
+                case 0 -> "ID";
+                case 1 -> "Nome";
+                case 2 -> "Linha";
+                case 3 -> "Capacidade";
+                case 4 -> "Custo operacional";
+                default -> "Valor";
+            };
+        }
+
+        if (classe == Metro.class) {
+            return switch (indice) {
+                case 0 -> "ID";
+                case 1 -> "Nome";
+                case 2 -> "Capacidade";
+                case 3 -> "Custo operacional";
+                default -> "Valor";
+            };
+        }
+
+        if (classe == BicicletaCompartilhada.class) {
+            return switch (indice) {
+                case 0 -> "ID";
+                case 1 -> "Nome";
+                case 2 -> "Disponível (sim/nao)";
+                default -> "Valor";
+            };
+        }
+
+        if (classe == Passageiro.class) {
+            return switch (indice) {
+                case 0 -> "ID";
+                case 1 -> "Nome";
+                case 2 -> "Saldo";
+                default -> "Valor";
+            };
+        }
+
+        if (classe == Rota.class) {
+            return switch (indice) {
+                case 0 -> "Codigo";
+                case 1 -> "Descricao";
+                default -> "Valor";
+            };
+        }
+
+        if (classe == Horario.class) {
+            return switch (indice) {
+                case 0 -> "Inicio (dd/MM/yyyy HH:mm)";
+                case 1 -> "Fim (dd/MM/yyyy HH:mm)";
+                default -> "Valor";
+            };
+        }
+
+        return "Valor";
     }
 
     private static Object converterValor(String valor, Class<?> tipo) {
@@ -181,7 +243,6 @@ public class ValeuMotor {
         }
 
         System.out.println("operando frota:");
-
         for (Transportavel v : veiculos) {
             v.mover();
         }
