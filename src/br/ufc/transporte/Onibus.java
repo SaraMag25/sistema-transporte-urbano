@@ -4,10 +4,10 @@ public class Onibus extends Veiculo {
 
     private String linha;
 
-    public Onibus(String linha, int capacidade, double custoOperacional) {
-        this.linha = linha;
-        this.capacidade = capacidade;
-        this.custoOperacional = custoOperacional;
+    public Onibus(int id, String nome, String linha, int capacidade, double custoOperacional) {
+            super(id, nome, capacidade, custoOperacional);  // Chama super() primeiro
+                this.linha = linha;
+                }
     }
 
     @Override

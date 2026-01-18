@@ -4,12 +4,15 @@ public class BicicletaCompartilhada extends Veiculo {
 
     private String estacaoOrigem;
 
-    public BicicletaCompartilhada(String estacaoOrigem, double custoOperacional) {
-        this.estacaoOrigem = estacaoOrigem;
-        this.capacidade = 1;
-        this.custoOperacional = custoOperacional;
+    public BicicletaCompartilhada(int id, String nome, String estacaoOrigem, double custoOperacional) {
+            super(id, nome, 1, custoOperacional);  
+                this.estacaoOrigem = estacaoOrigem;
+                }
     }
-
+    @Override
+    protected int getCapacidadeMaxima() {
+        return 1;  
+        }
     @Override
     public double calcularTarifa() {
         return 2.00;

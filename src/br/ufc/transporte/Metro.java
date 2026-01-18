@@ -1,13 +1,13 @@
 package br.ufc.transporte;
-//dando erro a espera do allan
+
 public class Metro extends Veiculo {
 
     private boolean subterraneo;
 
-    public Metro(boolean subterraneo, int capacidade, double custoOperacional) {
-        this.subterraneo = subterraneo;
-        this.capacidade = capacidade;
-        this.custoOperacional = custoOperacional;
+    public Metro(int id, String nome, boolean subterraneo, int capacidade, double custoOperacional) {
+            super(id, nome, capacidade, custoOperacional); 
+                this.subterraneo = subterraneo;
+                }
     }
 
     @Override
