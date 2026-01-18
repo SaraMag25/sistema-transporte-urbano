@@ -1,13 +1,13 @@
 package br.ufc.transporte;
-//dando erro a espera do allan
+
+// dando erro à espera do Allan
 public class Onibus extends Veiculo {
 
     private String linha;
 
     public Onibus(int id, String nome, String linha, int capacidade, double custoOperacional) {
-            super(id, nome, capacidade, custoOperacional);  // Chama super() primeiro
-                this.linha = linha;
-                }
+        super(id, nome, capacidade, custoOperacional); // Chama super() primeiro
+        this.linha = linha;
     }
 
     @Override
@@ -17,6 +17,6 @@ public class Onibus extends Veiculo {
 
     @Override
     public void mover() {
-        System.out.println("Ônibus da linha " + linha + " em movimento ");
+        System.out.println("Ônibus da linha " + linha + " em movimento");
     }
 }

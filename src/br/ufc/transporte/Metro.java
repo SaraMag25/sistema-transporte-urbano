@@ -5,9 +5,8 @@ public class Metro extends Veiculo {
     private boolean subterraneo;
 
     public Metro(int id, String nome, boolean subterraneo, int capacidade, double custoOperacional) {
-            super(id, nome, capacidade, custoOperacional); 
-                this.subterraneo = subterraneo;
-                }
+        super(id, nome, capacidade, custoOperacional);
+        this.subterraneo = subterraneo;
     }
 
     @Override
